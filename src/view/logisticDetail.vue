@@ -44,7 +44,7 @@ export default {
                 focus: '',
                 tunnage: '',
                 unitPrice: '',
-                mobile: '',
+                mobile: '18840770966',
                 remark: '',
                 status: 2
             },
