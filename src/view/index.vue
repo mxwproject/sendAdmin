@@ -15,7 +15,7 @@
                     <router-view></router-view>
                 </div>
                 <div class="layout-copy">
-                    2017-2018 &copy; www.hw.mangofun.cn
+                    2017-2018 &copy; send.wwlin.cn
                 </div>
             </Col>
         </Row>
@@ -30,7 +30,7 @@ export default {
     data () {
         return {
             leftSmallFlag: false,
-            isCollapsed:false,
+            isCollapsed: false,
             spanLeft: 4,
             spanRight: 20,
         }

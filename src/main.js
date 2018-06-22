@@ -6,6 +6,8 @@ import 'iview/dist/styles/iview.css';
 
 import axios from 'axios'
 
+axios.defaults.baseURL = 'http://send.wwlin.cn/';
+
 Vue.config.productionTip = false
 Vue.use(iView);
 
