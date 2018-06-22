@@ -61,13 +61,15 @@ export default {
 
         axios.get('/api/logistic/' + this._id).then((d) => {
             const data = d.data.data;
-            this.formValidate.departure = data.departure;
-            this.formValidate.focus = data.focus;
-            this.formValidate.tunnage = data.tunnage;
-            this.formValidate.unitPrice = data.unitPrice;
-            this.formValidate.mobile = data.mobile;
-            this.formValidate.remark = data.remark;
-            this.swathStatus = (data.status == 1 ? true : false);
+            if (Object.keys(data).length) {
+                this.formValidate.departure = data.departure;
+                this.formValidate.focus = data.focus;
+                this.formValidate.tunnage = data.tunnage;
+                this.formValidate.unitPrice = data.unitPrice;
+                this.formValidate.mobile = data.mobile;
+                this.formValidate.remark = data.remark;
+                this.swathStatus = (data.status == 1 ? true : false);
+            }
         });
     },
   	methods: {
