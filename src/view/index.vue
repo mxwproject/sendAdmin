@@ -54,7 +54,6 @@ export default {
             this.isCollapsed = !this.isCollapsed  
         },
         outlogin() {
-            console.log(1111);
             localStorage.clear();
             window.location.href ="/#/login";
         }
