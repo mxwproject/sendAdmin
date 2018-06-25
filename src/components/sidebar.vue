@@ -20,26 +20,8 @@ export default {
     data(){
         return {
             lists : [
-                // {   
-                //     name: "1",
-                //     icon : "person-stalker",
-                //     title : "预约量",
-                //     pathTo : [
-                //         {
-                //             path : "/",
-                //             text : "预约量",
-                //             name : "1-1"
-                //         }
-                //     ]
-                // },
-                // {   
-                //     name: "2-1",
-                //     icon : "person-stalker",
-                //     title : "文章管理",
-                //     pathTo :"/article"
-                // },
                 {   
-                    name: "2",
+                    name: "1",
                     icon : "document-text",
                     title : "物流管理",
                     pathTo : [
@@ -49,7 +31,19 @@ export default {
                             name : "2-1"
                         }
                     ]
-                }
+                },
+                // {   
+                //     name: "2",
+                //     icon : "document-text",
+                //     title : "物流管理",
+                //     pathTo : [
+                //         {
+                //             path : "/logistic",
+                //             text : "物流列表",
+                //             name : "2-1"
+                //         }
+                //     ]
+                // }
             ],
             activeName : "",
             isCollapsed :false

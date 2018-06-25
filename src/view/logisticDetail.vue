@@ -5,18 +5,32 @@
             <BreadcrumbItem to="/article">新增物流</BreadcrumbItem>
         </Breadcrumb>
         <Form ref="formValidate" :model="formValidate" :label-width="120" class="fromStyle">
-            <FormItem label="出发地：" prop="departure">
-                <Input v-model="formValidate.departure" placeholder="请填写出发地" class="optionStyle"></Input>
-            </FormItem>
-            <FormItem label="目的地：" prop="focus">
-                <Input v-model="formValidate.focus" placeholder="请填写目的地" class="optionStyle"></Input>
-            </FormItem>
-            <FormItem label="吨数：" prop="tunnage">
-                <Input v-model="formValidate.tunnage" placeholder="请填写吨数" class="optionStyle"></Input>
-            </FormItem>
-            <FormItem label="单价：" prop="unitPrice">
-                <Input v-model="formValidate.unitPrice" placeholder="请填写单价" class="optionStyle"></Input>
-            </FormItem>
+            <!-- <div class="line">
+                <div class="rows">
+                    <FormItem class="left" label="出发地：" prop="departure">
+                        <Input v-model="formValidate.departure" placeholder="请填写出发地" class="optionStyle"></Input>
+                    </FormItem>
+                    <FormItem class="right" label="目的地：" prop="focus">
+                        <Input v-model="formValidate.focus" placeholder="请填写目的地" class="optionStyle"></Input>
+                    </FormItem>
+                </div>
+                <div class="rows">
+                    <FormItem class="left" label="吨数：" prop="tunnage">
+                        <Input v-model="formValidate.tunnage" placeholder="请填写吨数" class="optionStyle"></Input>
+                    </FormItem>
+                    <FormItem class="right" label="单价：" prop="unitPrice">
+                        <Input v-model="formValidate.unitPrice" placeholder="请填写单价" class="optionStyle"></Input>
+                    </FormItem>
+                </div>
+                <div class="rows">
+                    <FormItem class="left" label="开始日期：" prop="tunnage">
+                        <DatePicker v-model="formValidate.startDate" type="date" placeholder="选择开始日期" class="optionStyle"></DatePicker>
+                    </FormItem>
+                    <FormItem class="right" label="结束日期：" prop="unitPrice">
+                        <DatePicker v-model="formValidate.endDate" type="date" placeholder="选择结束日期" class="optionStyle"></DatePicker>
+                    </FormItem>
+                </div>
+            </div>
             <FormItem label="手机号：" prop="mobile">
                 <Input v-model="formValidate.mobile" placeholder="请填写手机号" class="optionStyle"></Input>
             </FormItem>
@@ -25,6 +39,9 @@
             </FormItem>
             <FormItem  label="显示状态：">
                 <i-Switch v-model="swathStatus" @on-change="statusChange"></i-Switch>
+            </FormItem> -->
+            <FormItem label="内容：" prop="remark">
+                <Input class="text" v-model="formValidate.content" type="textarea" :rows="20" placeholder=""></Input>
             </FormItem>
             <FormItem>
                 <Button class='sure' type="primary" :disabled="buttonDisabled" @click="handleSubmit('formValidate')">确定</Button>
@@ -46,9 +63,12 @@ export default {
                 unitPrice: '',
                 mobile: '18840770966',
                 remark: '',
-                status: 2
+                status: 2,
+                startDate: '',
+                endDate: '',
+                content: ''
             },
-            swathStatus: false,
+            // swathStatus: false,
             buttonDisabled: false,
         }
     },
@@ -68,6 +88,7 @@ export default {
                 this.formValidate.unitPrice = data.unitPrice;
                 this.formValidate.mobile = data.mobile;
                 this.formValidate.remark = data.remark;
+                this.formValidate.content = data.content;
                 this.swathStatus = (data.status == 1 ? true : false);
             }
         });
@@ -80,7 +101,6 @@ export default {
             this.buttonDisabled = true;
             const data = this.formValidate
             data.status = this.swathStatus ? 1 : 2
-            data.content = this.content
             if(this._id){
                 axios.put('/api/logistic/' + this._id,data).then((d)=>{
                     if(d.data.code == 1) {
@@ -89,7 +109,7 @@ export default {
                             duration: 1
                         })
                         setTimeout(() => {
-                             window.location.href="/#/logistic"
+                            window.location.href="/#/logistic"
                         }, 1000)
                     }else {
                         this.$Message.error({
@@ -122,19 +142,36 @@ export default {
 </script>
 
 <style scoped>
+    .line {
+        display: inline-grid;
+    }
+    .rows {
+        display: inline-block;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+        position: relative;
+    }
     .crumbs{
         height: 40px;
         line-height: 40px;
         margin-bottom: 10px;
         border-radius: 5px;
     }
-
+ 
     .fromStyle {
         padding: 20px;
     }
 
     .optionStyle {
         width: 240px;
+    }
+
+    .text {
+        width: 400px;
     }
 
     .brands {

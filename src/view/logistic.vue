@@ -27,30 +27,30 @@ export default {
                     title: 'id',
                     key: 'id'
                 },
-                {
-                    title: '出发地',
-                    key: 'departure'
-                },
-                {
-                    title: '目的地',
-                    key: 'focus'
-                },
-                {
-                    title: '吨数',
-                    key: 'tunnage'
-                },
-                {
-                    title: '单价',
-                    key: 'unitPrice'
-                },
-                {
-                    title: '手机号',
-                    key: 'mobile'
-                },
-                {
-                    title: '备注',
-                    key: 'remark'
-                },
+                // {
+                //     title: '出发地',
+                //     key: 'departure'
+                // },
+                // {
+                //     title: '目的地',
+                //     key: 'focus'
+                // },
+                // {
+                //     title: '吨数',
+                //     key: 'tunnage'
+                // },
+                // {
+                //     title: '单价',
+                //     key: 'unitPrice'
+                // },
+                // {
+                //     title: '手机号',
+                //     key: 'mobile'
+                // },
+                // {
+                //     title: '备注',
+                //     key: 'remark'
+                // },
                 {
                     title : '操作',
                     width: 200,
